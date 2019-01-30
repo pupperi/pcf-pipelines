@@ -39,7 +39,15 @@ read -r -d '' director_configuration <<EOF
     "password": "$rds_password",
     "database": "$db_database"
   },
-  "blobstore_type": "internal"
+  "blobstore_type": "s3",
+  "s3_blobstore_options": {
+    "endpoint": "$S3_ENDPOINT",
+    "bucket_name": "$s3_pcf_bosh",
+    "access_key": "$aws_access_key_id",
+    "secret_key": "$aws_secret_access_key",
+    "signature_version": "4",
+    "region": "$AWS_REGION"
+  }
 }
 EOF
 
